@@ -362,4 +362,3 @@ function rp_save_review() {
     }
 }
 ?>
-
