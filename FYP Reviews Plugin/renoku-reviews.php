@@ -98,9 +98,21 @@ function rp_reviews_page() {
         $email = sanitize_email($_POST['rp_email']);
         $subject = 'Check out our reviews';
         $message = 'Please visit our website to see the latest reviews: ' . get_site_url();
-        wp_mail($email, $subject, $message);
-        echo '<div class="updated"><p>Email sent successfully to ' . esc_html($email) . '.</p></div>';
+        
+        // Debugging: Check if the function is called and the variables are correct
+        error_log("Sending email to: " . $email);
+        
+        if (wp_mail($email, $subject, $message)) {
+            echo '<div class="updated"><p>Email sent successfully to ' . esc_html($email) . '.</p></div>';
+            // Debugging: Check if email was sent successfully
+            error_log("Email sent successfully to: " . $email);
+        } else {
+            echo '<div class="error"><p>Failed to send email to ' . esc_html($email) . '.</p></div>';
+            // Debugging: Check if email sending failed
+            error_log("Failed to send email to: " . $email);
+        }
     }
+
 
     // Fetch reviews (Shernice & Jannah)
     $reviews = $wpdb->get_results("SELECT * FROM $table_name ORDER BY created_at DESC");
