@@ -382,7 +382,7 @@ add_shortcode('rp_review_form', 'rp_review_form_shortcode');
             );
 
             // Redirect to the thank you page
-            wp_redirect('http://localhost/wordpress_testingfyp123/46-2/');
+            wp_redirect('https://renoku2.azharapp.com/1407-2/');
             exit;
         }
     }
