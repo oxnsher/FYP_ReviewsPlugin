@@ -1,23 +1,24 @@
-/* CSS */
+/* CSS for Reviews Display */
 
 .rp-reviews {
     margin: 20px 0;
     display: flex;
-    flex-wrap: wrap; 
-    gap: 16px;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    gap: 16px; /* Space between items */
 }
 
 .rp-review {
     border: 1px solid #ccc;
     padding: 15px;
     border-radius: 5px;
-    flex: 1 1 calc(33.333% - 16px); 
-    box-sizing: border-box;
-    background-color: #f9f9f9; 
+    width: calc(33.333% - 16px); /* Fixed width for each review, adjusting for the gap */
+    box-sizing: border-box; /* Includes padding and border in the width */
+    background-color: #f9f9f9; /* Optional background color */
+    /* Ensures that the content inside the review box is centered */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    color: black;
+    /* Allow height to vary based on content */
 }
 
 .rp-review h3 {
