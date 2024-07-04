@@ -1,17 +1,14 @@
-/* CSS */
-
+/* CSS for reviews layout */
 .rp-reviews-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px; /* Space between rows */
-    margin: 20px 0;
+    margin: 20px auto;
+    max-width: 1200px; /* Adjust for container width */
+    padding: 0 1rem;
 }
 
 .rp-reviews-row {
     display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping within the row */
+    flex-wrap: wrap; /* Allows wrapping for responsive layout */
     gap: 16px; /* Space between reviews */
-    width: 100%;
     margin-bottom: 20px; /* Space between rows */
 }
 
@@ -19,26 +16,34 @@
     border: 1px solid #ccc;
     padding: 15px;
     border-radius: 5px;
-    width: 300px; /* Fixed width for each card */
+    width: calc(33.333% - 16px); /* Fixed width for each card, considering gap space */
     box-sizing: border-box; /* Includes padding and border in the width */
     background-color: #f9f9f9; /* Optional background color */
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    /* Allow height to vary based on content */
+    align-items: center;
 }
 
+/* Ensure review title and text are centered and spaced */
 .rp-review h3 {
     margin: 0 0 10px;
     font-size: 1.5em;
+    text-align: center;
 }
 
 .rp-rating {
     font-size: 1.2em;
     color: #FFD700;
     margin-bottom: 10px;
+    text-align: center; /* Center rating stars */
 }
 
+.rp-review p {
+    text-align: center; /* Center review text */
+    margin: 0 0 10px;
+}
+
+/* CSS for review form */
 form {
     margin: 20px 0;
 }
