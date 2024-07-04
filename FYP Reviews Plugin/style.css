@@ -1,0 +1,60 @@
+/* css: */
+
+.rp-reviews {
+    margin: 20px 0;
+}
+
+.rp-review {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.rp-review h3 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+}
+
+.rp-rating {
+    font-size: 1.2em;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+form {
+    margin: 20px 0;
+}
+
+form p {
+    margin: 10px 0;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #0073aa;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #005177;
+}
