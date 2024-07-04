@@ -45,8 +45,8 @@ add_action('admin_menu', 'rp_admin_menu');
 // Admin menu setup (Shernice & Jannah)
 function rp_admin_menu() {
     add_menu_page(
-        'Company Reviews',
-        'Company Reviews',
+        'Renoku Reviews',
+        'Renoku Reviews',
         'manage_options',
         'rp_reviews',
         'rp_reviews_page'
@@ -107,7 +107,7 @@ function rp_reviews_page() {
 
     ?>
     <div class="wrap">
-        <h1>Company Reviews</h1>
+        <h1>Renoku Reviews</h1>
         <h2>Add New Review</h2>
         <form method="post">
             <?php wp_nonce_field('rp_admin_add_review_action'); ?>
