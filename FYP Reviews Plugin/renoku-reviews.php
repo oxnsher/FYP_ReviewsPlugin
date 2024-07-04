@@ -340,33 +340,37 @@ function rp_review_form_shortcode() {
 }
 add_shortcode('rp_review_form', 'rp_review_form_shortcode');
 
-// Save user-submitted review (Shernice)
-function rp_save_review() {
-    if (isset($_POST['rp_submit_review'])) {
-        check_admin_referer('rp_add_review_action');
+    // Save user-submitted review (Shernice)
+    function rp_save_review() {
+        if (isset($_POST['rp_submit_review'])) {
+            check_admin_referer('rp_add_review_action');
 
-        global $wpdb;
-        $table_name = $wpdb->prefix . 'rp_reviews';
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'rp_reviews';
 
-        $name = sanitize_text_field($_POST['rp_name']);
-        $rating = intval($_POST['rp_rating']);
-        $comment = sanitize_textarea_field($_POST['rp_comment']);
+            $name = sanitize_text_field($_POST['rp_name']);
+            $rating = intval($_POST['rp_rating']);
+            $comment = sanitize_textarea_field($_POST['rp_comment']);
 
-        $wpdb->insert(
-            $table_name,
-            array(
-                'name' => $name,
-                'rating' => $rating,
-                'comment' => $comment,
-                'published' => 0
-            ),
-            array(
-                '%s',
-                '%d',
-                '%s',
-                '%d'
-            )
-        );
+            $wpdb->insert(
+                $table_name,
+                array(
+                    'name' => $name,
+                    'rating' => $rating,
+                    'comment' => $comment,
+                    'published' => 0
+                ),
+                array(
+                    '%s',
+                    '%d',
+                    '%s',
+                    '%d'
+                )
+            );
+
+            // Redirect to the thank you page
+            wp_redirect('http://localhost/wordpress_testingfyp123/46-2/');
+            exit;
+        }
     }
-}
 ?>
