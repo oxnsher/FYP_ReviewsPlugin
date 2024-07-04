@@ -279,9 +279,7 @@ function rp_display_reviews($atts) {
                 foreach ($reviews as $review) {
                     ?>
                     <div class="rp-review">
-                        <div class="rp-quotation">
-                            <img src="FYP Reviews Plugin\images\quotations.png" alt="Quotes">
-                        </div>
+                        <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/quote-right.png" alt="quote-right"/>
                         <div class="rp-rating">
                             <?php echo str_repeat('★', $review->rating) . str_repeat('☆', 5 - $review->rating); ?>
                         </div>
