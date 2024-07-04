@@ -275,15 +275,22 @@ function rp_display_reviews($atts) {
     <div class="rp-reviews">
         <?php
         if ($reviews) {
+            $count = 0; // Counter to keep track of rows
+            echo '<div class="rp-reviews-row">';
             foreach ($reviews as $review) {
                 ?>
                 <div class="rp-review">
-                    <h3><?php echo esc_html($review->name); ?></h3>
                     <div class="rp-rating"><?php echo str_repeat('★', $review->rating) . str_repeat('☆', 5 - $review->rating); ?></div>
                     <p><?php echo esc_html($review->comment); ?></p>
+                    <h3><?php echo esc_html($review->name); ?></h3>
                 </div>
                 <?php
+                $count++;
+                if ($count % 3 == 0) { // Close row after every 3 reviews
+                    echo '</div><div class="rp-reviews-row">';
+                }
             }
+            echo '</div>'; // Close the last row
         } else {
             ?>
             <p>No reviews found.</p>
@@ -294,6 +301,7 @@ function rp_display_reviews($atts) {
     <?php
     return ob_get_clean();
 }
+
 add_shortcode('company_reviews', 'rp_display_reviews');
 
 // Shortcode to display the review submission form (Shernice)

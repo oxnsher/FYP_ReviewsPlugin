@@ -1,7 +1,10 @@
-/* css: */
+/* CSS */
 
 .rp-reviews {
     margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Adjust as needed */
 }
 
 .rp-review {
@@ -9,6 +12,9 @@
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
+    flex: 1 1 calc(33.333% - 16px); /* Adjust the percentage based on the gap */
+    box-sizing: border-box;
+    background-color: #f9f9f9; /* Optional background color */
 }
 
 .rp-review h3 {
