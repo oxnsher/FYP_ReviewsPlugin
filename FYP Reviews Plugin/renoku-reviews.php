@@ -280,7 +280,7 @@ function rp_display_reviews($atts) {
                     ?>
                     <div class="rp-review">
                         <br>
-                        <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/quote-right.png" alt="quote-right"/>
+                        <img width="30" height="30" src="https://img.icons8.com/ios-filled/50/quote-right.png" alt="quote-right"/>
                         <div class="rp-rating">
                             <?php echo str_repeat('★', $review->rating) . str_repeat('☆', 5 - $review->rating); ?>
                         </div>
