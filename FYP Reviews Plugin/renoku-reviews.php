@@ -279,7 +279,6 @@ function rp_display_reviews($atts) {
                 foreach ($reviews as $review) {
                     ?>
                     <div class="rp-review">
-                        <br>
                         <img width="30" height="30" src="https://img.icons8.com/ios-filled/50/quote-right.png" alt="quote-right"/>
                         <div class="rp-rating">
                             <?php echo str_repeat('★', $review->rating) . str_repeat('☆', 5 - $review->rating); ?>
