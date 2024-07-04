@@ -96,9 +96,18 @@ function rp_reviews_page() {
         check_admin_referer('rp_send_email_action');
         
         $email = sanitize_email($_POST['rp_email']);
-        $subject = 'Check out our reviews';
-        $message = 'Please visit our website to see the latest reviews: ' . get_site_url();
-        
+        $subject = 'Renoku Values Your Feedback!';
+        $message = 'Dear Customer,
+    
+    We would love to hear your thoughts on our products and services. Your feedback helps us improve and serve you better.
+    
+    Please take a moment to leave a review: https://renoku2.azharapp.com/review-us/
+    
+    Thank you for trusting us with your home.
+    
+    Best regards,
+    Renoku Team';
+    
         // Debugging: Check if the function is called and the variables are correct
         error_log("Sending email to: " . $email);
         
@@ -112,6 +121,7 @@ function rp_reviews_page() {
             error_log("Failed to send email to: " . $email);
         }
     }
+    
 
 
     // Fetch reviews (Shernice & Jannah)
