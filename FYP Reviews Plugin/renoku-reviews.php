@@ -283,7 +283,7 @@ function rp_display_reviews($atts) {
                             <?php echo str_repeat('★', $review->rating) . str_repeat('☆', 5 - $review->rating); ?>
                         </div>
                         <p class="rp-review-text"><?php echo esc_html($review->comment); ?></p>
-                        <h3 class="rp-review-title"><?php echo esc_html($review->name); ?></h3>
+                        <p class="rp-review-title"><?php echo esc_html($review->name); ?></p>
                     </div>
                     <?php
                 }

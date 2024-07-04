@@ -1,30 +1,31 @@
 /* CSS for reviews layout */
 .rp-reviews-container {
     margin: 20px auto;
-    max-width: 1200px; /* Adjust for container width */
+    max-width: 1200px; 
     padding: 0 1rem;
 }
 
 .rp-reviews-row {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping for responsive layout */
-    gap: 16px; /* Space between reviews */
-    margin-bottom: 20px; /* Space between rows */
+    flex-wrap: wrap; 
+    gap: 16px; 
+    margin-bottom: 20px; 
 }
 
 .rp-review {
     border: 1px solid #ccc;
     padding: 15px;
-    border-radius: 5px;
-    width: calc(33.333% - 16px); /* Fixed width for each card, considering gap space */
-    box-sizing: border-box; /* Includes padding and border in the width */
-    background-color: #f9f9f9; /* Optional background color */
+    width: calc(33.333% - 16px); 
+    box-sizing: border-box; 
+    background-color: #f9f9f9; 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
+    color: black;
+    border-radius: 15px 0 15px 0; 
 }
 
-/* Ensure review title and text are centered and spaced */
+
 .rp-review h3 {
     margin: 0 0 10px;
     font-size: 1.5em;
@@ -35,15 +36,15 @@
     font-size: 1.2em;
     color: #FFD700;
     margin-bottom: 10px;
-    text-align: center; /* Center rating stars */
+    text-align: center; 
 }
 
 .rp-review p {
-    text-align: center; /* Center review text */
+    text-align: center; 
     margin: 0 0 10px;
 }
 
-/* CSS for review form */
+
 form {
     margin: 20px 0;
 }
@@ -81,12 +82,12 @@ form input[type="submit"]:hover {
     background-color: #005177;
 }
 
-/* CSS for review form submit button */
+
 form input[type="submit"] {
     background-color: #323131;
     color: white;
     border: 2px solid white;
-    border-radius: 0; /* Remove rounded corners */
+    border-radius: 0; 
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
