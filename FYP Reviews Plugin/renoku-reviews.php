@@ -1,15 +1,18 @@
 <?php
 /*
-Plugin Name: Company Reviews
-Description: Plugin for managing company reviews with ratings.
-Version: 1.1
-Author: Your Name
+Plugin Name: Reviews Plugin (RP)
+Plugin URI: https://renoku2.azharapp.com/reviews/
+Description: Reviews for Renoku's Website 
+Version: 1.0
+Author:Shernice, Jannah
+Author URI: https://github.com/oxnsher , https://github.com/nrjbms
+License: GPL2
 */
 
-// Plugin activation hook
+// Plugin activation hook (Shernice & Jannah)
 register_activation_hook(__FILE__, 'rp_create_reviews_table');
 
-// Create custom database table on plugin activation
+// Create custom database table on plugin activation (Shernice & Jannah)
 function rp_create_reviews_table() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'rp_reviews';
@@ -29,17 +32,17 @@ function rp_create_reviews_table() {
     dbDelta($sql);
 }
 
-// Enqueue styles
+// Enqueue styles (Shernice & Jannah)
 function rp_enqueue_styles() {
     wp_enqueue_style('rp-styles', plugins_url('style.css', __FILE__));
 }
 add_action('wp_enqueue_scripts', 'rp_enqueue_styles');
 add_action('admin_enqueue_scripts', 'rp_enqueue_styles');
 
-// Hook into admin menu
+// Hook into admin menu (Shernice & Jannah)
 add_action('admin_menu', 'rp_admin_menu');
 
-// Admin menu setup
+// Admin menu setup (Shernice & Jannah)
 function rp_admin_menu() {
     add_menu_page(
         'Company Reviews',
@@ -50,12 +53,12 @@ function rp_admin_menu() {
     );
 }
 
-// Admin page content
+// Admin page content 
 function rp_reviews_page() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'rp_reviews';
 
-    // Handle form submissions (approve/reject/delete/edit)
+    // Handle form submissions - approve/reject/delete/edit (Shernice & Jannah)
     if (isset($_GET['action']) && in_array($_GET['action'], array('approve', 'reject', 'delete', 'edit')) && isset($_GET['review_id'])) {
         $review_id = intval($_GET['review_id']);
         if ($_GET['action'] === 'delete') {
@@ -83,12 +86,12 @@ function rp_reviews_page() {
         }
     }
 
-    // Handle new review submission
+    // Handle new review submission (Shernice)
     if (isset($_POST['rp_admin_submit_review'])) {
         rp_save_admin_review();
     }
 
-    // Handle email sending
+    // Handle email sending (Jannah)
     if (isset($_POST['rp_send_email'])) {
         check_admin_referer('rp_send_email_action');
         
@@ -99,7 +102,7 @@ function rp_reviews_page() {
         echo '<div class="updated"><p>Email sent successfully to ' . esc_html($email) . '.</p></div>';
     }
 
-    // Fetch reviews
+    // Fetch reviews (Shernice & Jannah)
     $reviews = $wpdb->get_results("SELECT * FROM $table_name ORDER BY created_at DESC");
 
     ?>
@@ -193,7 +196,7 @@ function rp_reviews_page() {
                             </tr>
                             <?php
                         } else {
-                            // Display review information
+                            // Display review information (Jannah)
                             ?>
                             <tr>
                                 <td><?php echo $review->id; ?></td>
@@ -230,7 +233,7 @@ function rp_reviews_page() {
     <?php
 }
 
-// Save admin-added review
+// Save admin-added review (Shernice)
 function rp_save_admin_review() {
     if (isset($_POST['rp_admin_submit_review'])) {
         check_admin_referer('rp_admin_add_review_action');
@@ -260,7 +263,7 @@ function rp_save_admin_review() {
     }
 }
 
-// Shortcode to display reviews
+// Shortcode to display reviews (Jannah)
 function rp_display_reviews($atts) {
     global $wpdb;
     $table_name = $wpdb->prefix . 'rp_reviews';
@@ -293,7 +296,7 @@ function rp_display_reviews($atts) {
 }
 add_shortcode('company_reviews', 'rp_display_reviews');
 
-// Shortcode to display the review submission form
+// Shortcode to display the review submission form (Shernice)
 function rp_review_form_shortcode() {
     ob_start();
     ?>
@@ -329,7 +332,7 @@ function rp_review_form_shortcode() {
 }
 add_shortcode('rp_review_form', 'rp_review_form_shortcode');
 
-// Save user-submitted review
+// Save user-submitted review (Shernice)
 function rp_save_review() {
     if (isset($_POST['rp_submit_review'])) {
         check_admin_referer('rp_add_review_action');
