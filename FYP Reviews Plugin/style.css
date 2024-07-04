@@ -59,3 +59,19 @@ form input[type="submit"]:hover {
     background-color: #005177;
 }
 
+/* CSS for review form submit button */
+form input[type="submit"] {
+    background-color: #323131;
+    color: white;
+    border: 2px solid white;
+    border-radius: 0; /* Remove rounded corners */
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+form input[type="submit"]:hover {
+    border-color: #F7C454;
+    color: #F7C454;
+    background-color: #323131;
+}
