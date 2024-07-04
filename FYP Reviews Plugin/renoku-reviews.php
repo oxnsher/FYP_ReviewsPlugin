@@ -272,7 +272,7 @@ function rp_display_reviews($atts) {
 
     ob_start();
     ?>
-    <div class="rp-reviews">
+    <div class="rp-reviews-container">
         <?php
         if ($reviews) {
             $count = 0; // Counter to keep track of rows
@@ -301,6 +301,7 @@ function rp_display_reviews($atts) {
     <?php
     return ob_get_clean();
 }
+
 
 add_shortcode('company_reviews', 'rp_display_reviews');
 
