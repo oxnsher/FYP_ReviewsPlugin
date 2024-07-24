@@ -324,7 +324,6 @@ function rp_display_reviews($atts) {
 
 
 
-
 add_shortcode('rp_display_reviews', 'rp_display_reviews');
 
 // Shortcode to display the review submission form (Shernice)
